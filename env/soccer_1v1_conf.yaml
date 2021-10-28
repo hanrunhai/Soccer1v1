@@ -1,0 +1,64 @@
+env_name: "soccer_1v1"  # env
+env_type: "soccer"
+
+max_reward: 200  # fixed by env
+episode_step: 20  # fixed by env
+
+height: 9
+width: 11
+
+
+agent_mode: "AI"
+#agent_mode: "rule_2"
+opponent_mode: "rule_2" #  "AI", "normal_1", "rule_2", "still", "random"
+switch_oppo: False
+switch_episode: 100
+#opponent_mode: "normal_5" # "normal"
+#opponent_mode: "random" # "normal"
+#candidate: ["normal_2", "normal_3", "normal_5", "rule_2", "rule_3", "rule_4"]
+#candidate: [ "rule_2", "rule_3", "rule_4"]
+#candidate: ["normal_2", "normal_3", "normal_5"]
+candidate: ["normal_1", "normal_2", "normal_3", "normal_4", "normal_5", "normal_6", "rule_0", "rule_1", "rule_2", "rule_3", "rule_4", "rule_5"]
+
+state_dim: 41 # fixed by env
+action_dim: 5 # fixed by env
+
+ag_G1: !!python/tuple [ 3, 9 ]
+ag_G2: !!python/tuple [ 4, 9 ]
+ag_G3: !!python/tuple [ 5, 9 ]
+
+op_G1: !!python/tuple [ 3, 1 ]
+op_G2: !!python/tuple [ 4, 1 ]
+op_G3: !!python/tuple [ 5, 1 ]
+
+#init_mode: "fixed_point"
+init_mode: "random"
+agent_start_position: !!python/tuple [ 5, 3 ]
+opponent_start_position: !!python/tuple [ 3, 7 ]
+ball_start_position: !!python/tuple [ 3, 7 ]
+
+step_mode: "syn"
+#step_mode: "asyn"
+
+ball_owner: "random"
+#ball_owner: "agent"
+#ball_owner: "opponent"
+
+done_reward: 1
+env_enlarge: 40
+
+step_reward: -1
+error_reward: 0
+G1_reward: 100
+G2_reward: 100
+G3_reward: 100
+#G1_reward: 50
+#G2_reward: 100
+#G3_reward: 50
+
+continuous_action: False
+reward_normalize: False
+
+opponent_id: 5 # learn 时对手的策略编号
+opponent_name: soccer_op
+opponent_policy_num: 6
